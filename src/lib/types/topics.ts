@@ -1,8 +1,9 @@
 export interface TopicListItem {
 	id: string;
+	slug: string;
 	title: string;
 	description: string;
-	orderIndex: number;
+	order_index: number;
 	completed: number;
 	total: number;
 }

@@ -15,7 +15,7 @@
 	<nav>
 		<span>{data.user.email}</span>
 
-		<form method="POST" action="?/logout">
+		<form method="POST" action="/logout?/logout">
 			<button type="submit">Logout</button>
 		</form>
 	</nav>

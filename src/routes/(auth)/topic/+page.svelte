@@ -17,9 +17,9 @@
 	<h1 class="mb-8 text-3xl font-bold">Choose Your Topic</h1>
 
 	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-		{#each data.topics as topic}
+		{#each data.topics as topic (topic.id)}
 			<a
-				href={`/topics/${topic.slug}`}
+				href={`/topic/${topic.slug || topic.id}/learn`}
 				class="rounded-xl border border-gray-100 bg-white p-6 shadow-sm
 				transition duration-300 hover:-translate-y-1 hover:shadow-lg"
 			>

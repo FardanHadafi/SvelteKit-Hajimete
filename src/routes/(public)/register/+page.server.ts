@@ -1,5 +1,5 @@
 import { register } from '$lib/api/user.js';
-import { fail, redirect } from '@sveltejs/kit';
+import { fail, isRedirect, redirect } from '@sveltejs/kit';
 
 export const actions = {
 	default: async ({ request }) => {
@@ -9,11 +9,13 @@ export const actions = {
 
 		try {
 			await register({ email, password });
-			throw redirect(303, '/login');
 		} catch (e) {
+			if (isRedirect(e)) throw e;
 			return fail(400, {
 				error: (e as Error).message
 			});
 		}
+
+		throw redirect(303, '/login');
 	}
 };
